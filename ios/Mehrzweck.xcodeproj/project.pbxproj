@@ -12,8 +12,10 @@
 		13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.mm */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
+		6B47133DBBED44518EC5545C /* CoconRegularFont.otf in Resources */ = {isa = PBXBuildFile; fileRef = 748FEEB1D3524A828DDD267C /* CoconRegularFont.otf */; };
 		7699B88040F8A987B510C191 /* libPods-Mehrzweck-MehrzweckTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19F6CBCC0A4E27FBF8BF4A61 /* libPods-Mehrzweck-MehrzweckTests.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
+		B5D2DF194A824D2F92B1BD8A /* CoconBoldFont.otf in Resources */ = {isa = PBXBuildFile; fileRef = A95FE084988A4C92A29BB0D8 /* CoconBoldFont.otf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,8 +43,10 @@
 		5709B34CF0A7D63546082F79 /* Pods-Mehrzweck.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mehrzweck.release.xcconfig"; path = "Target Support Files/Pods-Mehrzweck/Pods-Mehrzweck.release.xcconfig"; sourceTree = "<group>"; };
 		5B7EB9410499542E8C5724F5 /* Pods-Mehrzweck-MehrzweckTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mehrzweck-MehrzweckTests.debug.xcconfig"; path = "Target Support Files/Pods-Mehrzweck-MehrzweckTests/Pods-Mehrzweck-MehrzweckTests.debug.xcconfig"; sourceTree = "<group>"; };
 		5DCACB8F33CDC322A6C60F78 /* libPods-Mehrzweck.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Mehrzweck.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		748FEEB1D3524A828DDD267C /* CoconRegularFont.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = CoconRegularFont.otf; path = ../src/assets/fonts/CoconRegularFont.otf; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = Mehrzweck/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		89C6BE57DB24E9ADA2F236DE /* Pods-Mehrzweck-MehrzweckTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mehrzweck-MehrzweckTests.release.xcconfig"; path = "Target Support Files/Pods-Mehrzweck-MehrzweckTests/Pods-Mehrzweck-MehrzweckTests.release.xcconfig"; sourceTree = "<group>"; };
+		A95FE084988A4C92A29BB0D8 /* CoconBoldFont.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = CoconBoldFont.otf; path = ../src/assets/fonts/CoconBoldFont.otf; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -122,6 +126,7 @@
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				BBD78D7AC51CEA395F1C20DB /* Pods */,
+				AF6293A9F28241F6BA156F2B /* Resources */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -135,6 +140,15 @@
 				00E356EE1AD99517003FC87E /* MehrzweckTests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		AF6293A9F28241F6BA156F2B /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				A95FE084988A4C92A29BB0D8 /* CoconBoldFont.otf */,
+				748FEEB1D3524A828DDD267C /* CoconRegularFont.otf */,
+			);
+			name = Resources;
 			sourceTree = "<group>";
 		};
 		BBD78D7AC51CEA395F1C20DB /* Pods */ = {
@@ -244,6 +258,8 @@
 			files = (
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
+				B5D2DF194A824D2F92B1BD8A /* CoconBoldFont.otf in Resources */,
+				6B47133DBBED44518EC5545C /* CoconRegularFont.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -486,6 +502,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "";
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = Mehrzweck/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -512,6 +529,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "";
 				INFOPLIST_FILE = Mehrzweck/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

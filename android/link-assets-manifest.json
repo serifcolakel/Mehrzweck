@@ -1,0 +1,13 @@
+{
+  "migIndex": 1,
+  "data": [
+    {
+      "path": "src/assets/fonts/CoconBoldFont.otf",
+      "sha1": "7bf660e8e81a98fbaade0244db6604f0f8f73311"
+    },
+    {
+      "path": "src/assets/fonts/CoconRegularFont.otf",
+      "sha1": "9c2bd7e63265000722ec56726f5f21aa20171dcd"
+    }
+  ]
+}
