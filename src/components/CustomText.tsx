@@ -7,15 +7,17 @@ import {isAndroid} from '../utils/platformUtil';
 type Props = {
   label: string;
   style?: StyleProp<TextStyle>;
+  onPress?: () => void;
 };
 
-const CustomText = ({label, style}: Props) => {
+const CustomText = ({label, style, onPress}: Props) => {
   return (
     <Text
+      onPress={onPress}
       style={[
         {
           fontFamily: isAndroid ? FONT_FAMILY.REGULAR : undefined,
-          color: colors.scarlet,
+          color: colors.black,
         },
         style,
       ]}>
