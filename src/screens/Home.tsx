@@ -4,16 +4,23 @@ import {StyleSheet, View} from 'react-native';
 import {RootStackParamList} from '../App';
 import CustomText from '../components/CustomText';
 import CustomButton from '../components/CustomButton';
+import {RootState, useAppDispatch, useAppSelector} from '../store';
+import {decrement, increment} from '../features/slices/counterSlice';
 
 type HomeScreenProps = NativeStackScreenProps<RootStackParamList, 'Home'>;
 
 function HomeScreen({navigation}: HomeScreenProps) {
+  const dispatch = useAppDispatch();
+  const {value} = useAppSelector((state: RootState) => state.counter);
   const handleGoToDetails = () => navigation.navigate('Details');
   const handleGoChat = () => navigation.navigate('Chat');
   const handleGoHome2 = () => navigation.navigate('Home2');
   return (
     <View style={styles.screenContainer}>
       <CustomText label="Home Screen" />
+      <CustomText label={`${value}`} />
+      <CustomButton label="Increment" onPress={() => dispatch(increment())} />
+      <CustomButton label="Decrement" onPress={() => dispatch(decrement())} />
       <CustomButton label="Go to Details" onPress={handleGoToDetails} />
       <CustomButton label="Go to Chat" onPress={handleGoChat} />
       <CustomButton label="Go to Home2" onPress={handleGoHome2} />
