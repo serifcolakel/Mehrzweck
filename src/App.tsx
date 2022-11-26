@@ -4,25 +4,30 @@
 
 import React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
-import {
-  createNativeStackNavigator,
-  NativeStackHeaderProps,
-} from '@react-navigation/native-stack';
+import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import HomeScreen from './screens/Home';
 import DetailsScreen from './screens/details/Details';
-import {View, StyleSheet} from 'react-native';
-import {colors} from './utils/colors';
-import {isAndroid} from './utils/platformUtil';
-import CustomText from './components/CustomText';
-import {InfoIcon, RightArrowIcon} from './assets/svg/Icons';
+import {InfoIcon, RightArrowIcon, SettingsIcon} from './assets/svg/Icons';
+import ChatHomeScreen from './screens/chat/ChatHomeScreen';
+import Header from './components/Header';
+import {Text, View} from 'react-native';
 
 export type RootStackParamList = {
   Home: undefined;
   Details: undefined;
+  Chat: undefined;
+  Home2: undefined;
 };
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
+const Home2 = () => {
+  return (
+    <View>
+      <Text>Home2</Text>
+    </View>
+  );
+};
 const App = () => {
   return (
     <NavigationContainer>
@@ -33,6 +38,35 @@ const App = () => {
           options={{
             header(props) {
               return <Header {...props} />;
+            },
+          }}
+        />
+        <Stack.Screen
+          name="Chat"
+          component={ChatHomeScreen}
+          options={{
+            header(props) {
+              return (
+                <Header
+                  {...props}
+                  leftIcon={
+                    <RightArrowIcon
+                      onPress={() => props.navigation.navigate('Home')}
+                      size={16}
+                      rotate={180}
+                    />
+                  }
+                  rightIcon={
+                    <SettingsIcon
+                      size={18}
+                      onPress={() =>
+                        props.navigation.canGoBack() &&
+                        props.navigation.goBack()
+                      }
+                    />
+                  }
+                />
+              );
             },
           }}
         />
@@ -65,44 +99,38 @@ const App = () => {
             },
           }}
         />
+        <Stack.Group
+          screenOptions={{
+            presentation: 'containedModal',
+            header(props) {
+              return (
+                <Header
+                  {...props}
+                  leftIcon={
+                    <RightArrowIcon
+                      onPress={() => props.navigation.navigate('Home')}
+                      size={16}
+                      rotate={180}
+                    />
+                  }
+                  rightIcon={
+                    <InfoIcon
+                      size={16}
+                      onPress={() =>
+                        props.navigation.canGoBack() &&
+                        props.navigation.goBack()
+                      }
+                    />
+                  }
+                />
+              );
+            },
+          }}>
+          <Stack.Screen name="Home2" component={Home2} />
+        </Stack.Group>
       </Stack.Navigator>
     </NavigationContainer>
   );
 };
-
-interface HeaderProps extends NativeStackHeaderProps {
-  rightIcon?: any;
-  handleGoBack?: () => void;
-  leftIcon?: any;
-  leftIconOnPress?: () => void;
-}
-
-const Header = ({navigation, route, leftIcon, rightIcon}: HeaderProps) => {
-  return (
-    <View style={styles.headerContainer}>
-      {navigation.canGoBack() && leftIcon ? leftIcon : <View />}
-      <CustomText label={route.name} style={styles.headerTitle} />
-      {rightIcon ? rightIcon : <View />}
-    </View>
-  );
-};
-
-const styles = StyleSheet.create({
-  headerContainer: {
-    backgroundColor: colors.primary,
-    height: isAndroid ? 50 : 80,
-    flexDirection: 'row',
-    alignItems: 'flex-end',
-    justifyContent: 'space-between',
-    paddingBottom: 10,
-    paddingHorizontal: 10,
-  },
-  headerTitle: {
-    fontSize: 14,
-    flex: 1,
-    textAlign: 'center',
-    color: colors.white,
-  },
-});
 
 export default App;

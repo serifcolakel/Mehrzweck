@@ -10,6 +10,16 @@ import {TabView, SceneMap, TabBar} from 'react-native-tab-view';
 import {colors} from '../../utils/colors';
 import {isAndroid} from '../../utils/platformUtil';
 import {FONT_FAMILY, PADDING} from '../../constant';
+import styled from 'styled-components';
+
+const DetailsTitle = styled(CustomText)`
+  font-size: 15px;
+  margin: 10px 0;
+  border-bottom-width: 1px;
+  border-bottom-color: ${colors.gray};
+  color: ${colors.scarlet};
+  padding-bottom: 10px;
+`;
 
 type DetailsProps = NativeStackScreenProps<RootStackParamList, 'Details'>;
 
@@ -25,13 +35,16 @@ const FirstRoute = ({navigation}: DetailsProps) => {
   return (
     <View style={styles.routeContainer}>
       <CustomText label={'Firs Screen is about to be implemented'} />
+      <DetailsTitle
+        label={'Below is a form with react-hook-form and styled-components'}
+      />
       <View style={styles.inputContainer}>
         <CustomInput
           label="Kullanıcı Adı"
           control={control}
           name="username"
           placeholder="Kullanıcı Adı"
-          rules={{required: 'Kullanıcı Adı is required'}}
+          rules={{required: 'Kullanıcı Adı zorunludur'}}
         />
       </View>
       <View style={styles.inputContainer}>
@@ -41,24 +54,20 @@ const FirstRoute = ({navigation}: DetailsProps) => {
           name="password"
           placeholder="Şifre"
           rules={{
-            required: 'Şifre is required',
+            required: 'Şifre zorunludur',
             minLength: {
               value: 3,
-              message: 'Şifre should be at least 3 characters',
+              message: 'Şifre en az 3 karakter olmalıdır',
             },
             maxLength: {
               value: 10,
-              message: 'Şifre should be at most 10 characters',
+              message: 'Şifre en fazla 10 karakter olmalıdır',
             },
           }}
         />
       </View>
-      <CustomButton label="Submit" onPress={handleSubmit(onSubmit)} />
-      <CustomButton
-        label="Go to Home"
-        type="outlined"
-        onPress={handleGoToHome}
-      />
+      <CustomButton label="Onayla" onPress={handleSubmit(onSubmit)} />
+      <CustomButton label="Anasayfa" type="outlined" onPress={handleGoToHome} />
     </View>
   );
 };

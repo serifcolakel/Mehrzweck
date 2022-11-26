@@ -9,11 +9,14 @@ type HomeScreenProps = NativeStackScreenProps<RootStackParamList, 'Home'>;
 
 function HomeScreen({navigation}: HomeScreenProps) {
   const handleGoToDetails = () => navigation.navigate('Details');
-
+  const handleGoChat = () => navigation.navigate('Chat');
+  const handleGoHome2 = () => navigation.navigate('Home2');
   return (
     <View style={styles.screenContainer}>
       <CustomText label="Home Screen" />
       <CustomButton label="Go to Details" onPress={handleGoToDetails} />
+      <CustomButton label="Go to Chat" onPress={handleGoChat} />
+      <CustomButton label="Go to Home2" onPress={handleGoHome2} />
     </View>
   );
 }
