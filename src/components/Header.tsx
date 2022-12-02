@@ -30,11 +30,17 @@ interface HeaderProps extends NativeStackHeaderProps {
   leftIconOnPress?: () => void;
 }
 
-const Header = ({navigation, route, leftIcon, rightIcon}: HeaderProps) => {
+const Header = ({
+  navigation,
+  route,
+  leftIcon,
+  rightIcon,
+  options,
+}: HeaderProps) => {
   return (
     <HeaderContainer>
       {navigation.canGoBack() && leftIcon ? leftIcon : <View />}
-      <HeaderTitle label={route.name} />
+      <HeaderTitle label={options.title || route.name} />
       {rightIcon ? rightIcon : <View />}
     </HeaderContainer>
   );

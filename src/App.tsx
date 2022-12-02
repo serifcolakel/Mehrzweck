@@ -13,12 +13,16 @@ import Header from './components/Header';
 import {Text, View} from 'react-native';
 import {Provider} from 'react-redux';
 import {store} from './store';
+import Login from './screens/Login';
+import Register from './screens/Register';
 
 export type RootStackParamList = {
   Home: undefined;
   Details: undefined;
   Chat: undefined;
   Home2: undefined;
+  Login: undefined;
+  Register: undefined;
 };
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
@@ -41,6 +45,48 @@ const App = () => {
             options={{
               header(props) {
                 return <Header {...props} />;
+              },
+            }}
+          />
+          <Stack.Screen
+            name="Login"
+            component={Login}
+            options={{
+              title: 'Giriş Yap',
+              header(props) {
+                return (
+                  <Header
+                    {...props}
+                    leftIcon={
+                      <RightArrowIcon
+                        onPress={() => props.navigation.navigate('Home')}
+                        size={16}
+                        rotate={180}
+                      />
+                    }
+                  />
+                );
+              },
+            }}
+          />
+          <Stack.Screen
+            name="Register"
+            component={Register}
+            options={{
+              title: 'Giriş Yap',
+              header(props) {
+                return (
+                  <Header
+                    {...props}
+                    leftIcon={
+                      <RightArrowIcon
+                        onPress={() => props.navigation.navigate('Home')}
+                        size={16}
+                        rotate={180}
+                      />
+                    }
+                  />
+                );
               },
             }}
           />
