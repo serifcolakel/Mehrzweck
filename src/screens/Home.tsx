@@ -19,13 +19,14 @@ function HomeScreen({navigation}: HomeScreenProps) {
   const handleGoChat = () => navigation.navigate('Chat');
   const handleGoHome2 = () => navigation.navigate('Home2');
   const handleGoLogin = () => navigation.navigate('Login');
-
+  const handleGoProductPage = () => navigation.navigate('Product');
   return (
     <ScreenContainer>
       <CustomButton label="Go to Details" onPress={handleGoToDetails} />
       <CustomButton label="Go to Chat" onPress={handleGoChat} />
       <CustomButton label="Go to Home2" onPress={handleGoHome2} />
       <CustomButton label="Go to Signin" onPress={handleGoLogin} />
+      <CustomButton label="Go to Product" onPress={handleGoProductPage} />
     </ScreenContainer>
   );
 }

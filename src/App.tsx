@@ -15,6 +15,7 @@ import {Provider} from 'react-redux';
 import {store} from './store';
 import Login from './screens/Login';
 import Register from './screens/Register';
+import Carousel from './components/ProductCarousel';
 
 export type RootStackParamList = {
   Home: undefined;
@@ -23,6 +24,7 @@ export type RootStackParamList = {
   Home2: undefined;
   Login: undefined;
   Register: undefined;
+  Product: undefined;
 };
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
@@ -46,6 +48,13 @@ const App = () => {
               header(props) {
                 return <Header {...props} />;
               },
+            }}
+          />
+          <Stack.Screen
+            name="Product"
+            component={Carousel}
+            options={{
+              headerShown: false,
             }}
           />
           <Stack.Screen
