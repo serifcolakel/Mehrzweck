@@ -71,15 +71,17 @@ In this project, About The Project...
         </a>
     </div>
     </li>
-     <li>
-    <p>Product Carousel</p>
-      <div align="center">
-         <video width="375" height="100%" controls>
-      <source src="https://user-images.githubusercontent.com/84101614/205721415-eb676e41-e8c3-4057-8b39-69d4dbe4cdab.mp4" type="video/mp4">
-    </div>
-    </li>
   </ol>
 </details>
+
+## Product Carousel
+
+
+https://user-images.githubusercontent.com/84101614/205724377-651369e1-4037-4c94-98ed-48c224ea052e.mp4
+
+
+
+
 <br />
 <br />
 
