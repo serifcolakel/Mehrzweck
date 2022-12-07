@@ -20,6 +20,7 @@ function HomeScreen({navigation}: HomeScreenProps) {
   const handleGoHome2 = () => navigation.navigate('Home2');
   const handleGoLogin = () => navigation.navigate('Login');
   const handleGoProductPage = () => navigation.navigate('Product');
+  const handleGoFilmsPage = () => navigation.navigate('MovieCarousel');
   return (
     <ScreenContainer>
       <CustomButton label="Go to Details" onPress={handleGoToDetails} />
@@ -27,6 +28,7 @@ function HomeScreen({navigation}: HomeScreenProps) {
       <CustomButton label="Go to Home2" onPress={handleGoHome2} />
       <CustomButton label="Go to Signin" onPress={handleGoLogin} />
       <CustomButton label="Go to Product" onPress={handleGoProductPage} />
+      <CustomButton label="Go to Films" onPress={handleGoFilmsPage} />
     </ScreenContainer>
   );
 }

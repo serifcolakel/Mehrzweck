@@ -16,6 +16,7 @@ import {store} from './store';
 import Login from './screens/Login';
 import Register from './screens/Register';
 import Carousel from './components/ProductCarousel';
+import MovieCarousel from './components/MovieCarousel';
 
 export type RootStackParamList = {
   Home: undefined;
@@ -25,6 +26,7 @@ export type RootStackParamList = {
   Login: undefined;
   Register: undefined;
   Product: undefined;
+  MovieCarousel: undefined;
 };
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
@@ -36,6 +38,7 @@ const Home2 = () => {
     </View>
   );
 };
+
 const App = () => {
   return (
     <Provider store={store}>
@@ -53,6 +56,13 @@ const App = () => {
           <Stack.Screen
             name="Product"
             component={Carousel}
+            options={{
+              headerShown: false,
+            }}
+          />
+          <Stack.Screen
+            name="MovieCarousel"
+            component={MovieCarousel}
             options={{
               headerShown: false,
             }}

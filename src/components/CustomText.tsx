@@ -8,19 +8,20 @@ type Props = {
   label: string;
   style?: StyleProp<TextStyle>;
   onPress?: () => void;
+  numberOfLines?: number;
 };
 
-const CustomText = ({label, style, onPress}: Props) => {
+const defaultStyle = {
+  fontFamily: isAndroid ? FONT_FAMILY.REGULAR : 'HoeflerText-Black', // https://github.com/react-native-training/react-native-fonts
+  color: colors.black,
+};
+
+const CustomText = ({label, style, onPress, numberOfLines}: Props) => {
   return (
     <Text
       onPress={onPress}
-      style={[
-        {
-          fontFamily: isAndroid ? FONT_FAMILY.REGULAR : undefined,
-          color: colors.black,
-        },
-        style,
-      ]}>
+      numberOfLines={numberOfLines}
+      style={[{...defaultStyle}, style]}>
       {label}
     </Text>
   );

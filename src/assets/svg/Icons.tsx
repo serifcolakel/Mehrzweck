@@ -243,6 +243,27 @@ export const CloseIcon: React.FC<IconProps> = ({
   );
 };
 
+export const StarIcon: React.FC<IconProps> = ({
+  color = colors.primary,
+  size = 24,
+  onPress,
+}) => {
+  return (
+    <TouchableOpacity activeOpacity={0.8} onPress={onPress}>
+      <Svg
+        width={size}
+        height={size}
+        preserveAspectRatio="xMidYMid meet"
+        viewBox="0 0 24 24">
+        <Path
+          fill={color}
+          d="m12 17.3l-3.7 2.825q-.275.225-.6.212q-.325-.012-.575-.187q-.25-.175-.387-.475q-.138-.3-.013-.65L8.15 14.4l-3.625-2.575q-.3-.2-.375-.525q-.075-.325.025-.6q.1-.275.35-.488q.25-.212.6-.212H9.6l1.45-4.8q.125-.35.388-.538q.262-.187.562-.187q.3 0 .562.187q.263.188.388.538L14.4 10h4.475q.35 0 .6.212q.25.213.35.488q.1.275.025.6q-.075.325-.375.525L15.85 14.4l1.425 4.625q.125.35-.012.65q-.138.3-.388.475t-.575.187q-.325.013-.6-.212Z"
+        />
+      </Svg>
+    </TouchableOpacity>
+  );
+};
+
 export const FavoriteIcon: React.FC<IconProps> = ({
   color = colors.primary,
   size = 24,
