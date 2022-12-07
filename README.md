@@ -74,16 +74,13 @@ In this project, About The Project...
   </ol>
 </details>
 
-## Product Carousel
-
+### Product Carousel
 
 https://user-images.githubusercontent.com/84101614/205724377-651369e1-4037-4c94-98ed-48c224ea052e.mp4
 
+### Movie Carousel
 
-
-
-<br />
-<br />
+https://user-images.githubusercontent.com/84101614/206301895-9c229402-48cf-420b-bdd8-06c51b6d5d25.mov
 
 ## **Built With**
 
