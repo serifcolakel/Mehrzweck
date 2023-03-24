@@ -20,7 +20,7 @@ export const FONT_WEIGHT = {
 
 export const PADDING = {
   TEN: 10,
-  ELERVEN: 11,
+  ELEVEN: 11,
   TWELVE: 12,
   THIRTEEN: 13,
   FOURTEEN: 14,
