@@ -1,6 +1,6 @@
 import {StyleProp, Text, TextStyle} from 'react-native';
 import React from 'react';
-import {FONT_FAMILY} from '../constant';
+import {FONT_FAMILY, FONT_SIZE} from '../constant';
 import {colors} from '../utils/colors';
 import {isAndroid} from '../utils/platformUtil';
 import styled from 'styled-components';
@@ -15,6 +15,7 @@ type Props = {
 const StyledText = styled(Text)`
   font-family: ${isAndroid ? FONT_FAMILY.REGULAR : 'HoeflerText-Black'};
   color: ${colors.white};
+  font-size: ${FONT_SIZE.SMALL}px;
 `;
 
 const CustomText = ({label, onPress, style, numberOfLines}: Props) => {
