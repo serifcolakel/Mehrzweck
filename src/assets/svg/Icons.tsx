@@ -21,7 +21,7 @@ export type IconProps = {
 
 export const HomeIcon: React.FC<IconProps> = ({
   color = colors.primary,
-  size = 35,
+  size = 24,
   onPress,
 }) => {
   return (
@@ -42,7 +42,7 @@ export const HomeIcon: React.FC<IconProps> = ({
 
 export const CalendarIcon: React.FC<IconProps> = ({
   color = colors.primary,
-  size = 35,
+  size = 24,
   onPress,
 }) => {
   return (
@@ -68,7 +68,7 @@ export const CalendarIcon: React.FC<IconProps> = ({
 
 export const RightArrowIcon: React.FC<IconProps> = ({
   color = colors.white,
-  size = 35,
+  size = 24,
   onPress,
   rotate = 0,
 }) => {
@@ -97,7 +97,7 @@ export const RightArrowIcon: React.FC<IconProps> = ({
 
 export const SpeedIcon: React.FC<IconProps> = ({
   color = colors.primary,
-  size = 35,
+  size = 24,
   onPress,
 }) => {
   return (
