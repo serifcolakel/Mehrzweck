@@ -3,6 +3,7 @@ import React from 'react';
 import {FONT_FAMILY} from '../constant';
 import {colors} from '../utils/colors';
 import {isAndroid} from '../utils/platformUtil';
+import styled from 'styled-components';
 
 type Props = {
   label: string;
@@ -11,19 +12,16 @@ type Props = {
   numberOfLines?: number;
 };
 
-const defaultStyle = {
-  fontFamily: isAndroid ? FONT_FAMILY.REGULAR : 'HoeflerText-Black', // https://github.com/react-native-training/react-native-fonts
-  color: colors.black,
-};
+const StyledText = styled(Text)`
+  font-family: ${isAndroid ? FONT_FAMILY.REGULAR : 'HoeflerText-Black'};
+  color: ${colors.white};
+`;
 
-const CustomText = ({label, style, onPress, numberOfLines}: Props) => {
+const CustomText = ({label, onPress, style, numberOfLines}: Props) => {
   return (
-    <Text
-      onPress={onPress}
-      numberOfLines={numberOfLines}
-      style={[{...defaultStyle}, style]}>
+    <StyledText onPress={onPress} numberOfLines={numberOfLines} style={style}>
       {label}
-    </Text>
+    </StyledText>
   );
 };
 
