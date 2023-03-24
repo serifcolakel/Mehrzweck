@@ -1,14 +1,66 @@
 import React from 'react';
-import {View, TextInput, StyleSheet} from 'react-native';
-import {Controller} from 'react-hook-form';
+import {View, TextInput} from 'react-native';
+import {Controller, FieldError, UseControllerProps} from 'react-hook-form';
 import {colors} from '../utils/colors';
 import {FONT_FAMILY, FONT_SIZE, PADDING} from '../constant';
 import CustomText from './CustomText';
 import {isAndroid} from '../utils/platformUtil';
 import styled from 'styled-components';
+import {IconProps} from './CustomButton';
 
 const StyledInputContainer = styled(View)`
-  padding: ${PADDING.TEN}px 0px;
+  padding: ${PADDING.TEN / 2}px 0px;
+`;
+
+const InputContainer = styled(View)``;
+
+const StyledTextInput = styled(TextInput)<{hasLeftIcon?: boolean}>`
+  height: 40px;
+  font-family: ${isAndroid ? FONT_FAMILY.REGULAR : 'HoeflerText-Black'};
+  color: ${colors.primary};
+  flex: 1;
+  margin-left: ${({hasLeftIcon}) => (hasLeftIcon ? 10 : 0)}px;
+  margin-top: 2px;
+  text-align: left;
+`;
+
+const InputContentContainer = styled(View)<{error?: FieldError}>`
+  background-color: ${colors.white};
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding-horizontal: ${PADDING.SIXTEEN}px;
+  border-width: 1px;
+  border-radius: 8px;
+  border-color: ${({error}) => (error ? colors.scarlet : colors.gray3)};
+`;
+
+const InputLeftContainer = styled(View)`
+  flex: 1;
+  flex-direction: row;
+  align-items: center;
+`;
+
+const InputIconContainer = styled(View)`
+  width: 5%;
+  align-items: center;
+  justify-content: center;
+`;
+
+const InputLabel = styled(CustomText)<{error?: FieldError}>`
+  font-size: ${FONT_SIZE.EXTRA_SMALL}px;
+  padding-bottom: 4px;
+  align-self: stretch;
+  padding-left: 5px;
+  color: ${({error}) => (error ? colors.scarlet : colors.primary)};
+`;
+
+const InputErrorLabel = styled(CustomText)`
+  color: ${colors.scarlet};
+  align-self: stretch;
+  padding-top: 10px;
+  padding-left: 5px;
+  font-size: ${FONT_SIZE.EXTRA_SMALL}px;
 `;
 
 const CustomInput = ({
@@ -18,13 +70,17 @@ const CustomInput = ({
   placeholder,
   secureTextEntry,
   label,
+  leftIcon,
+  rightIcon,
 }: {
   control: any;
   name: string;
-  rules?: any;
+  rules?: UseControllerProps['rules'];
   placeholder: string;
   secureTextEntry?: boolean;
   label: string;
+  rightIcon?: (props: IconProps) => React.ReactNode;
+  leftIcon?: (props: IconProps) => React.ReactNode;
 }) => {
   return (
     <StyledInputContainer>
@@ -33,63 +89,38 @@ const CustomInput = ({
         name={name}
         rules={rules}
         render={({field: {value, onChange, onBlur}, fieldState: {error}}) => (
-          <>
-            <CustomText style={styles.label} label={label} />
-            <View
-              style={[
-                styles.container,
-                {borderColor: error ? colors.scarlet : colors.gray3},
-              ]}>
-              <TextInput
-                value={value}
-                onChangeText={onChange}
-                onBlur={onBlur}
-                placeholder={placeholder}
-                style={styles.input}
-                secureTextEntry={secureTextEntry}
-                placeholderTextColor={colors.gray4}
-              />
-            </View>
-            {error && (
-              <CustomText
-                style={styles.errorText}
-                label={error.message || 'Error'}
-              />
-            )}
-          </>
+          <InputContainer>
+            <InputLabel error={error} label={label} />
+            <InputContentContainer error={error}>
+              <InputLeftContainer>
+                {leftIcon && (
+                  <InputIconContainer>
+                    {leftIcon({color: error && colors.scarlet})}
+                  </InputIconContainer>
+                )}
+                <StyledTextInput
+                  onTouchEnd={() => {}}
+                  returnKeyType="done"
+                  hasLeftIcon={!!leftIcon}
+                  value={value}
+                  onChangeText={onChange}
+                  onBlur={onBlur}
+                  placeholder={placeholder}
+                  secureTextEntry={secureTextEntry}
+                  placeholderTextColor={colors.gray}
+                />
+              </InputLeftContainer>
+              {rightIcon && (
+                <InputIconContainer>
+                  {rightIcon({color: error && colors.scarlet})}
+                </InputIconContainer>
+              )}
+            </InputContentContainer>
+            {error && <InputErrorLabel label={error?.message!} />}
+          </InputContainer>
         )}
       />
     </StyledInputContainer>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    backgroundColor: 'white',
-    flexWrap: 'wrap',
-    flexDirection: 'row',
-    borderWidth: 1,
-    borderRadius: 5,
-  },
-  input: {
-    height: 40,
-    width: '100%',
-    paddingHorizontal: 10,
-    fontFamily: isAndroid ? FONT_FAMILY.REGULAR : undefined,
-    color: colors.black,
-  },
-  errorText: {
-    color: colors.scarlet,
-    alignSelf: 'stretch',
-    paddingTop: 5,
-    fontSize: FONT_SIZE.EXTRA_SMALL,
-  },
-  label: {
-    color: colors.primary,
-    alignSelf: 'stretch',
-    paddingBottom: 4,
-    fontSize: FONT_SIZE.EXTRA_SMALL,
-  },
-});
-
 export default CustomInput;
